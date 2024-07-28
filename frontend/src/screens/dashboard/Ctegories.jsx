@@ -38,10 +38,12 @@ const Categories = () => {
         getCategoryList();
     }, []);
 
-
     const handleSearch = async (event) => {
         event.preventDefault();
         try {
+
+            console.log('search key', searchKey);
+            console.log('search key', searchTerm.toLowerCase());
             // dispatch(showLoading());
             const res = await axios.post(`http://localhost:5000/admin/searchCategory`, {
                 searchKey,
@@ -99,25 +101,25 @@ const Categories = () => {
             dispatch(hideLoading)
             console.error('Error deleting user:', error);
         }
-    } 
+    }
 
 
     const handleUpdate = async (cname, image, id) => {
         console.log(cname, image, id);
         try {
             dispatch(showLoading);
-            
-          const res = await axios.put(`http://localhost:5000/admin/updateCategoryById/${id}`, {
-                cname, image , id, userId:user.id
+
+            const res = await axios.put(`http://localhost:5000/admin/updateCategoryById/${id}`, {
+                cname, image, id, userId: user.id
             }, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     token: localStorage.getItem('token')
                 }
             });
-    
+
             dispatch(hideLoading);
-            
+
             if (res.data.success) {
                 getCategoryList();
                 toast.success(res.data.message);
@@ -130,8 +132,8 @@ const Categories = () => {
             console.error('Error updating category:', error);
         }
     }
-    
-    
+
+
     const handleAddCategory = () => {
         setShowForm(!showForm);
     };
@@ -295,7 +297,7 @@ const EditForm = ({ handleUpdate, setEditModalVisible, item }) => {
         e.preventDefault();
 
 
-        handleUpdate(categoryName , file || item.image, item.id);
+        handleUpdate(categoryName, file || item.image, item.id);
 
         setEditModalVisible(false);
     };
@@ -335,7 +337,7 @@ const EditForm = ({ handleUpdate, setEditModalVisible, item }) => {
                         </div>
 
                         <div className="flex justify-end">
-                            <button type="submit" className="bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded-md" onClick={()=>handleUpdate(categoryName,file)}>Save Changes</button>
+                            <button type="submit" className="bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded-md" onClick={() => handleUpdate(categoryName, file)}>Save Changes</button>
                             <button type="button" className="ml-4 bg-gray-300 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-md" onClick={() => setEditModalVisible(false)}>Cancel</button>
                         </div>
                     </form>

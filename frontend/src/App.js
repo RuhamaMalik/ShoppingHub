@@ -17,6 +17,7 @@ import Product from './screens/Product';
 import Categories from './screens/Categories';
 import ErrorPage from './screens/ErrorPage';
 import ProfileScreen from './screens/profile/ProfileScreen';
+import ProductSingleDetails from './components/cards/ProductSingleDetails';
 
 function App() {
   const { user } = useSelector(state => state.user);
@@ -42,7 +43,8 @@ function App() {
         ) : (
           <Routes>
 
-            <Route path='/' element={<ProtectedRoutes><Home /></ProtectedRoutes>} />
+            <Route path='/' element={<Home />} />
+            {/* <Route path='/' element={<ProductSingleDetails />} /> */}
             <Route path='/signup' element={<PublicRoute><SignUp /></PublicRoute>} />
             <Route path='/login' element={<PublicRoute><SignIn /></PublicRoute>} />
             <Route path='/about' element={<ProtectedRoutes><About /></ProtectedRoutes>} />

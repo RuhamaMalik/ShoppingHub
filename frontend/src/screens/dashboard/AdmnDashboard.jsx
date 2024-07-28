@@ -40,6 +40,8 @@ const AdminDashboard = () => {
         { icon: 'fas fa-users', name: 'Users', tab: '1' },
         { icon: 'fas fa-box', name: 'Products', tab: '2' },
         { icon: 'fas fa-folder', name: 'Categories', tab: '3' },
+        { icon: 'fas fa-tags', name: 'Deals', tab: '4' },
+        { icon: 'fas fa-receipt', name: 'Orders', tab: '5' }
     ];
     return (
         <>
@@ -78,9 +80,9 @@ const AdminDashboard = () => {
             <div className="flex h-screen bg-white text-white ">
                 {/* Sidebar */}
 
-                <div className={`max-[768px]:pt-20 fixed top-0 left-0 bottom-0 w-64 bg-gray-900 p-4  transition-transform duration-300 ease-in-out transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} pt-10  md:relative md:left-0 md:transform-none`}>
+                <div className={`max-[768px]:pt-20 fixed top-0 left-0 bottom-0 w-64 bg-gray-900 p-4  transition-transform duration-300 ease-in-out transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} pt-10  md:relative md:left-0 md:transform-none overflow-auto`}>
                     <h1 className="text-xl font-bold border-b border-gray-500 pb-5">Admin Dashboard</h1>
-                    <ul className="mt-4">
+                    <ul className="mt-4 ">
                         {sidebarLinks.map((link, index) => (
                             <li key={index} className="mb-2">
                                 <Link to={`?tab=${link.tab}`} className={`block px-4 py-2 rounded-md hover:bg-gray-700 ${currentTab === link.tab ? 'bg-gray-700' : ''}`} onClick={() => changeTab(link.tab)}>
@@ -92,7 +94,8 @@ const AdminDashboard = () => {
                         <li className="mb-2"><NavLink  to='/' className='w-full text-left block px-4 py-2 rounded-md hover:bg-gray-700'><i className='fas fa-home'></i> Home</NavLink></li>
                         <li className="mb-2"><button onClick={handleLogout} className='w-full text-left block px-4 py-2 rounded-md hover:bg-gray-700'><i className='fas fa-sign-out-alt'></i> SignOut</button></li>
                     </ul>
-                    <img src={logo} alt="" className="w-3/4  absolute bottom-0 left-0 " />
+                    {/* <img src={logo} alt="" className="w-3/4   absolute bottom-0 left-0 " /> */}
+                    <img src={logo} alt="" className="w-3/4 h-[200px]  -m-4  mt-6" />
                     {/* <img src="https://img.pikbest.com/origin/10/06/36/28TpIkbEsTfqc.png!w700wp" alt="" className="w-3/4  absolute bottom-0 left-0 " /> */}
 
                 </div>

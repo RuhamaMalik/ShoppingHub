@@ -9,6 +9,8 @@ import ProductCard from '../components/cards/ProductCard';
 const Product = () => {
     const { user } = useSelector(state => state.user);
     const [products, setProducts] = useState([]);
+    const [randomImage, setRandomImage] = useState(null);
+
     const dispatch = useDispatch()
 
     // get all products
@@ -38,6 +40,15 @@ const Product = () => {
 
 
 
+    //  Random bg image
+
+    useEffect(() => {
+        if (products.length > 0) {
+            const randomIndex = Math.floor(Math.random() * products.length);
+            setRandomImage(products[randomIndex].imagePath);
+        }
+    }, [products]);
+
 
 
 
@@ -50,7 +61,8 @@ const Product = () => {
                 <div className="absolute inset-0 z-0">
                     <img
                         className="w-full h-full object-cover"
-                        src={products[products.length - 1]?.imagePath}
+                        src={randomImage}
+                        // src={products[products.length - 1]?.imagePath}
                         // src="https://image.made-in-china.com/202f0j00EYHqvVPIsBkR/Latest-Design-Kids-Sneakers-Leather-Face-Mesh-Cotton-Shoes-Boys-Shoes.jpg"
                         alt="Products Hero Background"
                     />
@@ -71,7 +83,7 @@ const Product = () => {
             {/* ////////////// cards section //////////////// */}
 
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full justify-items-center">
+            <div id='products' className="grid grid-cols-1 py-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[20px] w-full justify-items-center">
                 {products?.map((item, index) => (
                     <ProductCard key={index} item={item} />
                 ))}
