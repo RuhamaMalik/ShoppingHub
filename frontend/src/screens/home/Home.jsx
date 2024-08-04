@@ -8,6 +8,7 @@ import Footer from '../../components/Footer';
 import { NavLink } from 'react-router-dom';
 import back from '../../assets/images/back.png';
 import bagbg from '../../assets/images/bag-bg-home.png';
+import purse from '../../assets/images/purse.webp';
 
 const Home = () => {
   const { user } = useSelector(state => state.user);
@@ -167,7 +168,7 @@ const Home = () => {
 
         <div className=' flex flex-col justify-space-between items-center italic gap-4 sm:px-8 md:pr-24'>
 
-          <img className='h-[500px] w-[85%] sm:w-[400px] rounded ' src="https://redsymbol.in/wp-content/uploads/elementor/thumbs/bg-03-b-qoe0mgrz9zb6k63v4dfd24rphwnalwikjppvin60so.jpg" alt="" />
+          <img className='h-[500px] w-[85%] sm:w-[400px] rounded ' src={purse} alt="bag image" />
 
           <h1 className='w-[85%] sm:w-[400px]  text-white text-2xl sm:text-4xl capitalize text-center '>Explore our exquisite Bag Collection now!</h1>
           <NavLink to="/categories" className=" px-12 py-3 bg-[var(--base-bg-dark-color)] text-white rounded-md hover:bg-transparent hover:border  transition duration-300 ease-in-out">
