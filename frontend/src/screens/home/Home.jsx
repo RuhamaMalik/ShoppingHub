@@ -10,10 +10,12 @@ import back from '../../assets/images/back.png';
 import bagbg from '../../assets/images/bag-bg-home.png';
 import purse from '../../assets/images/purse.webp';
 
+
 const Home = () => {
   const { user } = useSelector(state => state.user);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+
 
   // get all categories
   const getCtegoryList = async () => {
@@ -120,7 +122,7 @@ const Home = () => {
         </div>
       </div>
 
-
+ 
       {/* Categories */}
       <div className="container h-[60vh] max-w-[100vw] overflow-hidden  py-8 relative top-6">
         <h2 className="text-2xl font-semibold mb-4 pl-6">Categories</h2>
@@ -137,6 +139,8 @@ const Home = () => {
       </div>
 
       {/* Products */}
+
+
       {/* <div className=" relative container py-8 mt-20 ">
         <h2 className="text-2xl font-semibold mb-4 pl-6">Products</h2>
         <div className="pl-10 overflow-x-auto whitespace-nowrap w-[98.5vw]  " style={{ scrollbarWidth: "none" }}>
@@ -151,6 +155,11 @@ const Home = () => {
         </NavLink>
 
       </div> */}
+
+
+
+
+
 
       {/* Bag Addvertisement  section */}
 
