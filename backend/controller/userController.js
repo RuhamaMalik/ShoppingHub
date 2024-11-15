@@ -1,7 +1,7 @@
 const db = require('../models/config');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const JSON_SECRET = 'nbd=wh+jm#rgmsfwj%-fkjk90(e][je$bdjwe';
+// const JSON_SECRET = 'nbd=wh+jm#rgmsfwj%-fkjk90(e][je$bdjwe';
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const User = db.users;
@@ -10,8 +10,8 @@ const path = require('path');
 const fs = require('fs');
 const url = require('url');
 
-const baseUrl = 'http://localhost:5000';
-const uploadUrl = url.resolve(baseUrl, '/uploads');
+// const baseUrl = 'http://localhost:5000';
+const uploadUrl = url.resolve(process.env.BaseUrl, '/uploads');
 
 // console.log('----------------' + uploadUrl);
 
@@ -75,7 +75,7 @@ const login = async (req, res) => {
         }
 
         // create token
-        const token = jwt.sign({ id: getuser.id }, JSON_SECRET, {
+        const token = jwt.sign({ id: getuser.id }, process.env.JSON_SECRET, {
             expiresIn: "1d",
         });
 

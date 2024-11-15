@@ -22,7 +22,7 @@ const ProductCard = ({ image, title, rating, reviews, features, description, pri
             <span>{reviews}</span>
           </div>
           <div className="text-gray-600 text-sm mb-2">
-            {features.map((feature, i) => (
+            {features?.map((feature, i) => (
               <span key={i} className="mr-1">
                 {feature} {i < features.length - 1 && <span className="text-primary">•</span>}
               </span>

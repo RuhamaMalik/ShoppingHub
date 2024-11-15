@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 require('./models/config');
 const app = express();
@@ -20,4 +21,4 @@ app.get('/', (req, res) => {
     res.send('hello')
 })
 
-app.listen(5000, () => console.log('server is running'))
+app.listen(process.env.PORT || 5000, () => console.log('server is running'))
