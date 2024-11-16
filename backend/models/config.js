@@ -9,7 +9,8 @@ const sequelize = new Sequelize(
     host: process.env.DB_HOST,
     logging: false,
     dialect: "mysql",
-  }
+    // port:3306,
+  },
 );
 
 // check db connection

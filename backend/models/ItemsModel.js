@@ -42,7 +42,8 @@ module.exports = (sequelize, DataTypes, Model) => {
         }
     }, {
         sequelize,
-        modelName: 'Item'
+        // modelName: 'Item'
+        modelName: 'item'
     });
     Item.associate = (models) => {
         Item.belongsTo(models.Category, {
